@@ -13,6 +13,7 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   var domline = context.domline;
   var exp = /(?:^| )pastedImage:([^>]*)/;
   var pastedImageType = exp.exec(cls);
+  if (!pastedImageType) return [];
   if (pastedImageType[1]){
     var modifier = {
       preHtml: pastedImageType[1]+'>',
