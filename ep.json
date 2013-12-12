@@ -1,0 +1,20 @@
+{
+  "parts": [
+    {
+      "name": "ep_copy_paste_images",
+      "client_hooks": {
+        "aceGetFilterStack": "ep_copy_paste_images/static/js/index:aceGetFilterStack",
+        "aceCreateDomLine": "ep_copy_paste_images/static/js/index:aceCreateDomLine",
+        "acePostWriteDomLineHTML": "ep_copy_paste_images/static/js/index",
+        "collectContentPre": "ep_copy_paste_images/static/js/index",
+        "collectContentPost": "ep_copy_paste_images/static/js/index",
+        "collectContentLineText" : "ep_copy_paste_images/static/js/index",
+        "aceAttribsToClasses" : "ep_copy_paste_images/static/js/index",
+        "aceDomLineProcessLineAttributes" : "ep_copy_paste_images/static/js/index"
+      },
+      "hooks":{
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,13 @@
+{
+  "name": "ep_copy_paste_images",
+  "description": "Copy and Paste images from clipboard to a pad",
+  "version": "0.0.1",
+  "author": "johnyma22 (John McLear) <john@mclear.co.uk>",
+  "contributors": [ ],
+  "dependencies": { },
+  "repository" : {
+    "type" : "git",
+    "url"  : "https://github.com/JohnMcLear/ep_copy_paste_images.git"
+  },
+  "engines": { "node": "*" }
+}
