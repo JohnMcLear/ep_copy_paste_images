@@ -16,7 +16,7 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   if (!pastedImageType) return [];
   if (pastedImageType[1]){
     var modifier = {
-      preHtml: pastedImageType[1]+'>',
+      preHtml: pastedImageType[1]+' style="max-width:100%;max-height:800px;">',
       postHtml: '',
       processedMarker: true
     };
@@ -46,4 +46,6 @@ exports.aceCreateDomLine = function(name, args){
 
 exports.acePostWriteDomLineHTML = function (name, context){
 }
-
+exports.aceRegisterBlockElements = function (name, context){
+  return ['img'];
+}
