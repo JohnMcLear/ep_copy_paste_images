@@ -10,7 +10,8 @@
         "collectContentPost": "ep_copy_paste_images/static/js/index",
         "collectContentLineText" : "ep_copy_paste_images/static/js/index",
         "aceAttribsToClasses" : "ep_copy_paste_images/static/js/index",
-        "aceDomLineProcessLineAttributes" : "ep_copy_paste_images/static/js/index"
+        "aceDomLineProcessLineAttributes" : "ep_copy_paste_images/static/js/index",
+        "postAceInit" : "ep_copy_paste_images/static/js/index"
       },
       "hooks":{
         "collectContentPre": "ep_copy_paste_images/static/js/index",
