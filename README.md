@@ -1,7 +1,4 @@
-ep_copy_paste_images
-====================
-
-Pastes images from clipboard into Etherpad
+# Paste images from clipboard into Etherpad
 
 You need to use the support-images branch of Etherpad for this to work
 
