@@ -8,3 +8,4 @@
  - [ ] Support image resize
  - [ ] Support image drag and drop
  - [ ] Support wrap around image (This will never happen)
+ - [ ] Fix issue when a user selects content then hits paste
