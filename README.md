@@ -1,5 +1,5 @@
 # Paste images from clipboard into Etherpad
-![Screenshot](http://imgur.com/emZqtwG)
+![Screenshot](http://i.imgur.com/emZqtwG.png)
 
 ## Warning
 This plugin is WIP and isn't stable 
