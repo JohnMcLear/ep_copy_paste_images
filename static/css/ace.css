@@ -1,20 +1,25 @@
-.previewImages {
-  border: 2px solid #bbbbbb;
-  margin: 2px;
-  display: inline-block;
-  line-height: 0;
+.image > control{
+  position:absolute;
+  background-color:#fff;
+  opacity:0.7;
+  top:10px;
+  border: solid #666 1px;
 }
 
-.previewImages img {
-  position: inherit;
+.image > #small{
+  height:20px;
+  width:20px;
+  left:10px;
 }
 
-.previewImages .character {
-  /* Do not use display: none, or you'll break backspace for some reason! */
-  font-size: 0;
-  opacity: 0;
+.image > #medium{
+  height:35px;
+  width:35px;
+  left:40px;
 }
 
-.pastedImage{
-  max-width:100%;
+.image > #large{
+  height:50px;
+  width:50px;
+  left:85px;
 }

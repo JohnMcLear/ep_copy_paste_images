@@ -3,6 +3,7 @@
     {
       "name": "ep_copy_paste_images",
       "client_hooks": {
+        "aceEditorCSS": "ep_copy_paste_images/static/js/index",
         "aceGetFilterStack": "ep_copy_paste_images/static/js/index:aceGetFilterStack",
         "aceCreateDomLine": "ep_copy_paste_images/static/js/index:aceCreateDomLine",
         "acePostWriteDomLineHTML": "ep_copy_paste_images/static/js/index",
@@ -14,6 +15,7 @@
         "aceAttribClasses" : "ep_copy_paste_images/static/js/index"
       },
       "hooks":{
+        "eejsBlock_styles": "ep_copy_paste_images/index",
         "collectContentPre": "ep_copy_paste_images/static/js/index",
         "collectContentPost": "ep_copy_paste_images/static/js/index",
         "aceRegisterBlockElements": "ep_copy_paste_images/static/js/index"

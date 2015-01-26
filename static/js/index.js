@@ -8,16 +8,20 @@ exports.aceAttribsToClasses = function(name, context){
   }
 }
 
+exports.aceEditorCSS = function(hook_name, cb){return ["/ep_copy_paste_images/static/css/ace.css"];} // inner pad CSS
+
 exports.aceDomLineProcessLineAttributes = function(name, context){
   var cls = context.cls;
   var domline = context.domline;
   var exp = /(?:^| )img:([^>]*)/;
   var imgType = exp.exec(cls);
   if (!imgType) return [];
+  var template = "";
+  var template = "<control id='small'></control><control id='medium'></control><control id='large'></control>";
   if (imgType[1]){
     var modifier = {
-      preHtml: imgType[1]+' style="max-width:100%;max-height:800px;">',
-      postHtml: '',
+      preHtml: '<span class="image">'+template+imgType[1]+' style="max-width:100%;">',
+      postHtml:'</span>',
       processedMarker: true
     };
     return [modifier];
@@ -53,7 +57,7 @@ exports.aceCreateDomLine = function(name, args){
 exports.acePostWriteDomLineHTML = function (name, context){
 }
 exports.aceRegisterBlockElements = function (name, context){
-  return ['img'];
+//  return ['img'];
 }
 
 exports.aceAttribClasses = function(hook, attr){
