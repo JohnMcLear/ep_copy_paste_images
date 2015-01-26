@@ -51,7 +51,9 @@ exports.postAceInit = function(hook,context){
       var imageLine = $inner.find("#"+id).parent();
       var lineNumber = imageLine.prevAll().length;
       // Here I need to remove the lineAttribute from the source line
-      ace.ace_removeImage(lineNumber);
+      context.ace.callWithAce(function(ace){
+        ace.ace_removeImage(lineNumber);
+      }, 'img', true);
     })
 
     // On clicking / hover of an image show the resize shiz
@@ -106,6 +108,8 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   var imgType = exp.exec(cls);
   var imgSize = expSize.exec(cls);
   if (!imgType) return [];
+
+  var width = "width:25%";
   if(imgSize){
     if(imgSize[1] == "small"){
       var width = "width:25%"
@@ -118,17 +122,12 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
     }
   }
 
-  var widthString = "";
-  if(width){
-    widthString = width;
-  }
-
   var template = "";
   var randomId =  Math.floor((Math.random() * 100000) + 1); 
   var template = "<span class='control "+randomId+"' id='small' unselectable='on' contentEditable=false></span><span class='control' id='medium' contentEditable=false></span><span class='control' id='large' contentEditable=false></span>";
   if (imgType[1]){
     var modifier = {
-      preHtml: '<span id="'+randomId+'" class="image" style="'+widthString+'">'+template+imgType[1]+' style="width:100%;" contentEditable="false">',
+      preHtml: '<span id="'+randomId+'" class="image" style="'+width+'">'+template+imgType[1]+' style="width:100%;" contentEditable="false">',
       postHtml:'</span>',
       processedMarker: true
     };
