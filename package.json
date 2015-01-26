@@ -7,7 +7,7 @@
   "dependencies": { },
   "peerDependencies": {
     "ep_etherpad_lite" : ">=1.5.2"
-  }
+  },
   "repository" : {
     "type" : "git",
     "url"  : "https://github.com/JohnMcLear/ep_copy_paste_images.git"
