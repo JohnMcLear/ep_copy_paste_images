@@ -106,14 +106,16 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   var imgType = exp.exec(cls);
   var imgSize = expSize.exec(cls);
   if (!imgType) return [];
-  if(imgSize[1] == "small"){
-    var width = "width:25%"
-  }
-  if(imgSize[1] == "medium"){
-    var width = "width:50%";
-  }
-  if(imgSize[1] == "large"){
-    var width = "width:100%";
+  if(imgSize){
+    if(imgSize[1] == "small"){
+      var width = "width:25%"
+    }
+    if(imgSize[1] == "medium"){
+      var width = "width:50%";
+    }
+    if(imgSize[1] == "large"){
+      var width = "width:100%";
+    }
   }
 
   var widthString = "";
