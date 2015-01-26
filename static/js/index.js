@@ -1,22 +1,22 @@
 exports.aceAttribsToClasses = function(name, context){
-  if(context.key.indexOf("pastedImage:") !== -1){
-  var pastedImage =  /(?:^| )pastedImage:([^>]*)/.exec(context.key);
-    return ['pastedImage:' + pastedImage[1] ];
+  if(context.key.indexOf("img:") !== -1){
+  var img =  /(?:^| )img:([^>]*)/.exec(context.key);
+    return ['img:' + img[1] ];
   }
-  if(context.key == 'pastedImage'){
-    return ['pastedImage:' + context.value ];
+  if(context.key == 'img'){
+    return ['img:' + context.value ];
   }
 }
 
 exports.aceDomLineProcessLineAttributes = function(name, context){
   var cls = context.cls;
   var domline = context.domline;
-  var exp = /(?:^| )pastedImage:([^>]*)/;
-  var pastedImageType = exp.exec(cls);
-  if (!pastedImageType) return [];
-  if (pastedImageType[1]){
+  var exp = /(?:^| )img:([^>]*)/;
+  var imgType = exp.exec(cls);
+  if (!imgType) return [];
+  if (imgType[1]){
     var modifier = {
-      preHtml: pastedImageType[1]+' style="max-width:100%;max-height:800px;">',
+      preHtml: imgType[1]+' style="max-width:100%;max-height:800px;">',
       postHtml: '',
       processedMarker: true
     };
@@ -28,11 +28,17 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
 exports.aceGetFilterStack = function(name, context){
   return [
     context.linestylefilter.getRegexpFilter(
-      new RegExp("pastedImage", "g"), 'pastedImage')
+      new RegExp("img", "g"), 'img')
   ];
 }
 
 exports.collectContentLineText = function(name, context){
+}
+
+exports.collectContentImage = function(name, context){
+  console.log("collected image", context);
+  context.state.lineAttributes.img = context.node.outerHTML;
+  // I could do w/ moving the caret to the next line..
 }
 
 exports.collectContentPre = function(name, context){
@@ -49,3 +55,7 @@ exports.acePostWriteDomLineHTML = function (name, context){
 exports.aceRegisterBlockElements = function (name, context){
   return ['img'];
 }
+
+exports.aceAttribClasses = function(hook, attr){
+}
+
