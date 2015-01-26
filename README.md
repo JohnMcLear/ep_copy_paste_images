@@ -12,11 +12,11 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  - [x] Make it work on develop branch (see https://github.com/ether/etherpad-lite/pull/2497/files)
  - [x] Support image resize
  - [x] Support image drag and drop
- - [ ] Fix issue when a user selects content then hits paste
- - [ ] Support image drag and drop to already populated lines
- - [ ] Consider file upload experience (if we want to provide that)
- - [ ] Fix copy/paste within editor creating multiple copies
- - [ ] Fix IE being able to resize image
+ - [ ] Fix issue when a user selects content then hits paste (it currently throws up an error and breaks editing)
+ - [ ] Support image drag and drop to already populated lines (it currently does not allow the image to be uploaded to this point, imho it should create a new line with the image on)
+ - [ ] Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
+ - [ ] Fix copy/paste within editor creating multiple copies -- Currently if you copy/paste an image inside the pad it spams the image onto the pad multiple times.
+ - [ ] Fix IE being able to resize image -- IE problems....  Y'know...
 
 #V2:
  - [ ] Investigate using shadow DOM
