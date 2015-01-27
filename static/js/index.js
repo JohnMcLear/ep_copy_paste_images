@@ -48,7 +48,7 @@ exports.postAceInit = function(hook,context){
       oldLineNumber = imageLine.prevAll().length;
     })
 
-    // On control select do fuck all, I hate this..
+    // On drag end remove the attribute on the line
     $inner.on("dragend", ".image", function(e){
       // Here I need to remove the lineAttribute from the source line
       context.ace.callWithAce(function(ace){

@@ -17,7 +17,6 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  - [x] Fix mobile issue where mouseout never fires so resize is always shown
  --- Should be a relatively easy fix but will require handling aceEditEvent events
  - [x] Show span as active on click of "control" element
- - [x] Fix issue with Firefox not being able to drag up the pad due to race cond
 
  - [ ] Fix issue when a user selects content then hits paste (it currently throws up an error and breaks editing)
  --- Creating a new line "might" fix this but other than that I don't have any other ideas other than inserting a special character
@@ -28,6 +27,8 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  - [ ] Fix copy/paste within editor creating multiple copies -- Currently if you copy/paste an image inside the pad it spams the image onto the pad multiple times.
  --- I might have to modify the hook to make this work effectively
 
+ - [ ] FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition
+ - [ ] ALL: Fix issue where dragging and dropping in same location nukes the image
  - [ ] CHROME: Drag and Drop from File system wont import image (Chrome bug) -- http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser  (NOTE I ALSO TESTED IN FF AND IE AND ITS WORKING FINE SO ALTERNATIVE IS TO TELL PEOPLE TO USE FIREFOX :P) -- also note copy/paste clipboard works fine
 
 #V2:
