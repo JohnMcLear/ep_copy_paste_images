@@ -17,15 +17,16 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  - [x] Fix mobile issue where mouseout never fires so resize is always shown
  --- Should be a relatively easy fix but will require handling aceEditEvent events
  - [x] Show span as active on click of "control" element
-
- - [ ] Fix issue when a user selects content then hits paste (it currently throws up an error and breaks editing)
+ - [x] Fix issue when a user selects content then hits paste (it currently throws up an error and breaks editing)
  --- Creating a new line "might" fix this but other than that I don't have any other ideas other than inserting a special character
- - [ ] Support image drag and drop to already populated lines (it currently does not allow the image to be uploaded to this point, imho it should create a new line with the image on)
+ - [x] Support image drag and drop to already populated lines (it currently does not allow the image to be uploaded to this point, imho it should create a new line with the image on)
  --- Hopefully creating a "new line" event should fix this
- - [ ] Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
+
+ - [ ] ALL: Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
  --- Seeing ep_fileupload we can probably leverage this and store images on the server
- - [ ] Fix copy/paste within editor creating multiple copies -- Currently if you copy/paste an image inside the pad it spams the image onto the pad multiple times.
+ - [ ] ALL: Fix copy/paste within editor creating 2 copies -- Currently if you copy/paste an image inside the pad it spams the image onto the pad multiple times.
  --- I might have to modify the hook to make this work effectively
+ - [ ] ALL: Fix copy/paste creating two copies when copying from web browser
 
  - [ ] FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition
  - [ ] ALL: Fix issue where dragging and dropping in same location nukes the image
