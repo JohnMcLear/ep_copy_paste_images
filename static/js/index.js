@@ -120,6 +120,7 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   var imgSize = expSize.exec(cls);
   if (!imgType) return [];
   var width = "width:25%";
+  var height = "height:25%;%";
   if(imgSize){
     if(imgSize[1] == "small"){
       var width = "width:25%";
