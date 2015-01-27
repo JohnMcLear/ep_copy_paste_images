@@ -69,6 +69,10 @@ On each release of this plugin due to browser restrictions we have to do a lot o
   1. New image is visible
   1. Image size is maintained
 
+## Image appearance
+  1. Image is never distorted
+  1. Image has correct color balance
+
 ## Resize
   1. Can resize the image small/medium/large
 
