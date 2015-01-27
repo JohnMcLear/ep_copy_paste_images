@@ -4,6 +4,10 @@
   padding:10px 0px 10px 0px;
 }
 
+.image > img{
+  width:100% !important;
+}
+
 .image > .control{
   position:absolute;
   background-color:#fff;

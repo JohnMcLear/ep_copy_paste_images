@@ -119,7 +119,7 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   var imgType = exp.exec(cls);
   var imgSize = expSize.exec(cls);
   if (!imgType) return [];
-
+console.warn(cls);
   var width = "width:25%";
   if(imgSize){
     if(imgSize[1] == "small"){
@@ -176,12 +176,12 @@ exports.collectContentPre = function(name, context){
   // Removing line attribute from things that aren't images
   // console.log("c", context.state.lineAttributes)
   if(context.cls !== "img"){
-    delete context.state.lineAttributes.img;
+    // delete context.state.lineAttributes.img;
   }
 }
 
 exports.collectContentPost = function(name, context){
-  delete context.state.lineAttributes.img;
+//  delete context.state.lineAttributes.img;
 }
 
 exports.aceCreateDomLine = function(name, args){
