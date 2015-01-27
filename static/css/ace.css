@@ -11,6 +11,11 @@
   top:10px;
   border: solid #666 1px;
   cursor:pointer;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;	
 }
 
 .image > .control:active{
