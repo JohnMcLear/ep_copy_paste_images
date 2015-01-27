@@ -17,6 +17,7 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  - [ ] Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
  - [ ] Fix copy/paste within editor creating multiple copies -- Currently if you copy/paste an image inside the pad it spams the image onto the pad multiple times.
  - [ ] Fix IE being able to resize image -- IE problems....  Y'know...
+ - [ ] Fix mobile issue where mouseout never fires so resize is always shown
 
 #V2:
  - [ ] Investigate using shadow DOM
