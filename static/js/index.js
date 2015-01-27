@@ -24,6 +24,8 @@ exports.aceInitialized = function(hook, context){
 // Handle click events
 exports.postAceInit = function(hook,context){
 
+  var oldLineNumber = 0;
+
   context.ace.callWithAce(function(ace){
     var doc = ace.ace_getDocument();
 
@@ -39,20 +41,22 @@ exports.postAceInit = function(hook,context){
     $inner.on("oncontrolselect", ".control", function(){
     })
 
-    // On control select do fuck all, I hate this..
-    $inner.on("dragstart", ".control", function(){
+    // On drag start of an image store the old line number (#hack potentially bad)
+    $inner.on("dragstart", ".image", function(e){
+      var id = e.currentTarget.id;
+      var imageLine = $inner.find("#"+id).parent();
+      oldLineNumber = imageLine.prevAll().length;
     })
 
     // On control select do fuck all, I hate this..
     $inner.on("dragend", ".image", function(e){
-      var id = e.currentTarget.id;
-      var imageLine = $inner.find("#"+id).parent();
-      var lineNumber = imageLine.prevAll().length;
       // Here I need to remove the lineAttribute from the source line
       context.ace.callWithAce(function(ace){
-        ace.ace_removeImage(lineNumber);
+        ace.ace_removeImage(oldLineNumber);
       }, 'img', true);
+
     })
+
     
     // On click ensure all image controls are hidden
     $inner.on("click", "div", function(){
