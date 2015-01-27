@@ -122,13 +122,16 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   var width = "width:25%";
   if(imgSize){
     if(imgSize[1] == "small"){
-      var width = "width:25%"
+      var width = "width:25%";
+      var height = "height:25%;";
     }
     if(imgSize[1] == "medium"){
       var width = "width:50%";
+      var height = "height:50%;";
     }
     if(imgSize[1] == "large"){
       var width = "width:100%";
+      var height = "height:100%;";
     }
   }
 
@@ -137,7 +140,7 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   var template = "<span class='control "+randomId+"' id='small' unselectable='on' contentEditable=false></span><span class='control' id='medium' contentEditable=false></span><span class='control' id='large' contentEditable=false></span>";
   if (imgType[1]){
     var modifier = {
-      preHtml: '<span id="'+randomId+'" class="image" style="'+width+'">'+template+imgType[1]+' style="width:100%;" contentEditable="false">',
+      preHtml: '<span id="'+randomId+'" class="image" style="'+width+'">'+template+imgType[1]+' style="'+height+'width:100%;" contentEditable="false">',
       postHtml:'</span>',
       processedMarker: true
     };
