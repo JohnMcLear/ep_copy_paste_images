@@ -39,3 +39,39 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
 #VNever:
  - [ ] Support wrap around image (This will never happen)
 
+# MANUAL TESTS:
+On each release of this plugin due to browser restrictions we have to do a lot of manual tests.
+
+## Devices to test on
+1. Mobile Phone (small / touch screen)
+1. IE9/10/11
+1. Firefox
+1. Chrome
+
+## Drag and Drop (using mouse)
+1. Original copy of image is removed
+1. New image is visible
+1. Image size is kept on copy/paste
+1. Drag and Drop onto a blank line
+1. Drag and drop onto content with a line
+
+## Copy / Paste (using control c / v AND right click copy/paste AND mobile copy/paste)
+1. Original copy of image is kept
+1. New image is visible
+1. Image size is kept on copy/paste
+1. Paste onto a blank line
+1. Paste onto content with a line
+
+## Cut / Paste (using control x / v AND right click copy/paste AND mobile copy/paste)
+1. Original copy of image is removed
+1. New image is visible
+1. Image size is kept on copy/paste
+1. Paste onto a blank line
+1. Paste onto content with a line
+
+## Resize
+1. Can resize the image small/medium/large
+
+## Browser Resize
+1. Caret can still be moved before and after the image using arrow keys and page up/down
+
