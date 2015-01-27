@@ -20,7 +20,7 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  --- Seeing ep_fileupload we can probably leverage this and store images on the server
  - [ ] Fix copy/paste within editor creating multiple copies -- Currently if you copy/paste an image inside the pad it spams the image onto the pad multiple times.
  --- I might have to modify the hook to make this work effectively
- - [ ] Fix IE being able to resize image -- IE problems....  Y'know...
+ - [x] Fix IE being able to resize image -- IE problems....  Y'know...
  --- Should be fixed now, needs testing
  - [x] Fix mobile issue where mouseout never fires so resize is always shown
  --- Should be a relatively easy fix but will require handling aceEditEvent events
