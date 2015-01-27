@@ -3,10 +3,6 @@ var padeditor = require('ep_etherpad-lite/static/js/pad_editor').padeditor;
 var padEditor;
 
 exports.aceAttribsToClasses = function(name, context){
-//  if(context.key.indexOf("img:") !== -1){
-//    var img =  /(?:^| )img:([^>]*)/.exec(context.key);
-//    return ['img:' + img[1] ];
-//  }
   if(context.key == 'img'){
     return ['img:' + context.value ];
   }
@@ -187,8 +183,8 @@ exports.aceCreateDomLine = function(name, args){
 
 exports.acePostWriteDomLineHTML = function (name, context){
 }
-exports.aceRegisterBlockElements = function (name, context){
-//  return ['img'];
+exports.ccRegisterBlockElements = function (name, context){
+  return ['img'];
 }
 
 exports.aceAttribClasses = function(hook, attr){
