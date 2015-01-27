@@ -49,6 +49,12 @@ On each release of this plugin due to browser restrictions we have to do a lot o
 1. Firefox
 1. Chrome
 
+## Different methods for each test below
+1. Drag and drop image using mouse
+1. Copy image to clipboard from a native application (such as gimp)
+1. Copy image to clipboard from this web browser (such as firefox)
+1. Copy image to clipboard from the pad
+
 ## Drag and Drop (using mouse)
 1. Drag and Drop onto a blank line
 1. Drag and drop onto content with a line
@@ -62,6 +68,7 @@ On each release of this plugin due to browser restrictions we have to do a lot o
   1. Original copy of image is kept
   1. New image is visible
   1. Image size is maintained
+  1. No text is lost
 
 ## Cut / Paste (using control x / v AND right click copy/paste AND mobile copy/paste)
 1. Paste onto a blank line
@@ -69,14 +76,23 @@ On each release of this plugin due to browser restrictions we have to do a lot o
   1. Original copy of image is removed
   1. New image is visible
   1. Image size is maintained
+  1. No text is lost
 
 ## Image appearance
   1. Image is never distorted
   1. Image has correct color balance
 
+## Alignment
+  1. Image can be aligned using ep_align
+
 ## Resize
   1. Can resize the image small/medium/large
 
 ## Browser Resize
-  1. Caret can still be moved before and after the image using arrow keys and page up/down
 
+## Keyboard
+  1. Caret
+    1. Caret can be moved between images
+    1. Caret can still be moved before and after the image using arrow keys and page up/down
+  1. Backspace deletes an image when caret is placed after the image
+  1. Delete deletes an image when caret is placed before the image
