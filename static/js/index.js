@@ -37,12 +37,10 @@ exports.postAceInit = function(hook,context){
 
     // On control select do fuck all, I hate this..
     $inner.on("oncontrolselect", ".control", function(){
-      // console.log("SDFSDFSDF");
     })
 
     // On control select do fuck all, I hate this..
     $inner.on("dragstart", ".control", function(){
-      // console.log("SDFSDFSDF");
     })
 
     // On control select do fuck all, I hate this..
@@ -55,6 +53,16 @@ exports.postAceInit = function(hook,context){
         ace.ace_removeImage(lineNumber);
       }, 'img', true);
     })
+    
+    // On click ensure all image controls are hidden
+    $inner.on("click", "div", function(){
+      // if it's an image
+      var isImage = $(this).find(".image").length > 0;
+      // Hide the controls
+      if(!isImage){
+        $(doc).find("head").append("<style>.control{display:none;}</style>");      
+      }
+    });
 
     // On clicking / hover of an image show the resize shiz
     $inner.on("click, mouseover", ".image", function(){
@@ -66,7 +74,10 @@ exports.postAceInit = function(hook,context){
     // On clicking / hover of an image show the resize shiz
     $inner.on("mouseout", ".image", function(){
       var randomId = $(this)[0].id;
-      $(doc).find("head").append("<style>.control{display:none;}</style>");
+      var isImage = $(this).context.className === "image";
+      if(!isImage){
+        $(doc).find("head").append("<style>.control{display:none;}</style>");
+      }
     });
 
     // On click of a control (to resize image) perform some shit
@@ -141,7 +152,6 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
 // of Image with the URL to the iamge
 // Images dragged / dropped from the Desktop will be Base64 encoded
 exports.collectContentImage = function(name, context){
-  // console.log("collected image", context);
   context.state.lineAttributes.img = context.node.outerHTML;
   // I could do w/ moving the caret to the next line..
 }
