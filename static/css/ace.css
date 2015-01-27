@@ -1,5 +1,5 @@
 .image{
-  display:block;
+  display:inline-block;
   position:relative;
   padding:10px 0px 10px 0px;
 }
