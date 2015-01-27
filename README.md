@@ -22,8 +22,9 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  --- I might have to modify the hook to make this work effectively
  - [ ] Fix IE being able to resize image -- IE problems....  Y'know...
  --- Should be fixed now, needs testing
- - [ ] Fix mobile issue where mouseout never fires so resize is always shown
+ - [x] Fix mobile issue where mouseout never fires so resize is always shown
  --- Should be a relatively easy fix but will require handling aceEditEvent events
+ - [x] Show span as active on click of "control" element
 
 #V2:
  - [x] Investigate using shadow DOM -- Impossible

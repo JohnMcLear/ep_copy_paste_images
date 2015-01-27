@@ -13,6 +13,10 @@
   cursor:pointer;
 }
 
+.image > .control:active{
+  background-color: #666;
+}
+
 .image > .control:hover{
   opacity:1;
 }
