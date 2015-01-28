@@ -99,6 +99,8 @@ On each release of this plugin due to browser restrictions we have to do a lot o
   1. Can resize the image small/medium/large
 
 ## Browser Resize
+  1. Can still nagivate the page.
+  1. Images can be moved / selected / resized
 
 ## Keyboard
   1. Caret
