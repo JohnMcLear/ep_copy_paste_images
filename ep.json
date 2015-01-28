@@ -14,13 +14,14 @@
         "aceDomLineProcessLineAttributes" : "ep_copy_paste_images/static/js/index",
         "aceAttribClasses" : "ep_copy_paste_images/static/js/index",
         "postAceInit" : "ep_copy_paste_images/static/js/index",
-        "aceInitialized" : "ep_copy_paste_images/static/js/index"
+        "aceInitialized" : "ep_copy_paste_images/static/js/index",
+        "ccRegisterBlockElements": "ep_copy_paste_images/static/js/index",
+        "aceRegisterBlockElements": "ep_copy_paste_images/static/js/index"
       },
       "hooks":{
         "eejsBlock_styles": "ep_copy_paste_images/index",
         "collectContentPre": "ep_copy_paste_images/static/js/index",
-        "collectContentPost": "ep_copy_paste_images/static/js/index",
-        "aceRegisterBlockElements": "ep_copy_paste_images/static/js/index"
+        "collectContentPost": "ep_copy_paste_images/static/js/index"
       }
     }
   ]

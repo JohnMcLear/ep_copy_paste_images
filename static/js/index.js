@@ -136,18 +136,25 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
     }
   }
 
-  var template = "";
+  // var template = "";
   var randomId =  Math.floor((Math.random() * 100000) + 1); 
-  var template = "<span class='control "+randomId+"' id='small' unselectable='on' contentEditable=false></span><span class='control' id='medium' contentEditable=false></span><span class='control' id='large' contentEditable=false></span>";
+  var template = '<span id="'+randomId+'" class="image" style="'+width+'">';
+  template += '<span class="control '+randomId+'" id="small" unselectable="on" contentEditable=false></span>';
+  template += '<span class="control" id="medium" contentEditable=false></span>';
+  template += '<span class="control" id="large" contentEditable=false></span>';
   if (imgType[1]){
+    var preHtml = template + imgType[1]+' style="'+height+'width:100%;" contentEditable="false">'
+    var postHtml = '</span>';
+    console.log(preHtml, postHtml);
+
     var modifier = {
-      preHtml: '<span id="'+randomId+'" class="image" style="'+width+'">'+template+imgType[1]+' style="'+height+'width:100%;" contentEditable="false">',
-      postHtml:'</span>',
+      preHtml: preHtml,
+      postHtml: postHtml,
       processedMarker: true
     };
     return [modifier];
   }
-
+  
   return [];
 };
 
@@ -155,8 +162,16 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
 // of Image with the URL to the iamge
 // Images dragged / dropped from the Desktop will be Base64 encoded
 exports.collectContentImage = function(name, context){
-  context.state.lineAttributes.img = context.node.outerHTML;
-  // I could do w/ moving the caret to the next line..
+  var tname = context.tname;
+  var state = context.state;
+  var cc = context.cc;
+  var lineAttributes = state.lineAttributes
+  if(tname === "div" || tname === "p"){
+    delete lineAttributes['img'];
+  }
+  if(tname == "img"){
+    lineAttributes['img'] = context.node.outerHTML;
+  }
 }
 
 
@@ -176,14 +191,16 @@ exports.collectContentLineText = function(name, context){
 }
 
 exports.collectContentPre = function(name, context){
-  // Removing line attribute from things that aren't images
-  // console.log("c", context.state.lineAttributes)
-  if(context.cls !== "img"){
-//    delete context.state.lineAttributes.img;
-  }
 }
 
 exports.collectContentPost = function(name, context){
+  var tname = context.tname;
+  var state = context.state;
+  var lineAttributes = state.lineAttributes
+//  var tagIndex = _.indexOf(tags, tname);
+  if(tname == "img"){
+    delete lineAttributes['img'];
+  }
 // uncommenting breaks drag and drop in firefox
 //  delete context.state.lineAttributes.img;
 }
@@ -195,6 +212,9 @@ exports.acePostWriteDomLineHTML = function (name, context){
 }
 exports.ccRegisterBlockElements = function (name, context){
   return ['img'];
+}
+exports.aceRegisterBlockElements = function (name, context){
+//  return ['img']; // doesn't seem to make any difference?
 }
 
 exports.aceAttribClasses = function(hook, attr){
