@@ -42,7 +42,7 @@ exports.postAceInit = function(hook,context){
     // to the same location would cause the image to be deleted!
     $inner.on("dragend", ".image", function(e){
       var id = e.currentTarget.id;
-      var imageLine = $inner.find("#"+id).parent();
+      var imageLine = $inner.find("#"+id).parents("div");
       var oldLineNumber = imageLine.prevAll().length;
 
         context.ace.callWithAce(function(ace){
@@ -88,7 +88,7 @@ exports.postAceInit = function(hook,context){
     // On click of a control (to resize image) perform some shit
     $inner.on("click", ".control", function(e){
       var newSize = e.currentTarget.id;
-      var imageLine = $(this).parent().parent();;
+      var imageLine = $(this).parents("div");;
       var lineNumber = imageLine.prevAll().length;
       context.ace.callWithAce(function(ace){
         ace.ace_setImageSize(newSize, lineNumber);
