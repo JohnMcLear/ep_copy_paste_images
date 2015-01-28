@@ -40,19 +40,19 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
 
  - [x] BUG: FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition (firefox thinks start and end position is always the same)
  - [x] BUG: IE/CHROME: Drag and Drop from File system wont import image (Chrome bug) http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser
+ - [x] BUG: IE: Unable to drag an drop contens in a pad
  - [ ] BUG: ALL: Drag and Drop onto line ABOVE WITH CONTENT doesn't remove old content -- Because the DOM is rewritten the line number is changed..  I'm a bit unsure how to fix this
- - [ ] BUG: IE: Unable to drag an drop contens in a pad
- - [ ] BUG: FIREFOX: Copy/Pasting text and images only pastes text
-
- - [ ] FEATURE: ALL: Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
- -Seeing ep_fileupload we can probably leverage this and store images on the server
+ - [ ] BUG: FIREFOX/IE: Copy/Pasting text and images only pastes text
 
 #V2:
- - [x] Investigate using shadow DOM Impossible
- - [ ] Disable Drag/resize handles in IE (see https://connect.microsoft.com/IE/Feedback/Details/907422)
+ - [ ] OPTIMIZE: Put images on the file system with links instead of in the pad as Base64 Encoded
+ - [ ] FUNCTIONALITY: Support Export fully
+ - [ ] UX: Disable Drag/resize handles in IE (see https://connect.microsoft.com/IE/Feedback/Details/907422)
+ - [ ] FEATURE: ALL: Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3) --- Seeing ep_fileupload we can probably leverage this and store images on the server
 
 #VNever:
  - [ ] Support wrap around image (This will never happen)
+ - [x] Use the shadow DOM for handles (See http://stackoverflow.com/questions/23882272/contenteditable-in-shadow-dom)
 
 # MANUAL TESTS:
 On each release of this plugin due to browser restrictions we have to do a lot of manual tests.
