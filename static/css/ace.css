@@ -22,7 +22,7 @@
   position:absolute;
   background-color:#fff;
   opacity:0.7;
-  top:10px;
+  bottom:10px;
   border: solid #666 1px;
   cursor:pointer;
   -moz-user-select: -moz-none;
@@ -43,19 +43,19 @@
 .image > #small{
   height:20px;
   width:20px;
-  left:10px;
+  right:115px;
 }
 
 .image > #medium{
   height:35px;
   width:35px;
-  left:40px;
+  right:70px;
 }
 
 .image > #large{
   height:50px;
   width:50px;
-  left:85px;
+  right:10px;
 }
 
 .imgsmall{

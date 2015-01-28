@@ -80,7 +80,7 @@ exports.postAceInit = function(hook,context){
     $inner.on("mouseout", ".image", function(){
       var randomId = $(this)[0].id;
       var isImage = $(this).context.className === "image";
-      if(!isImage){
+      if(isImage){
         $(doc).find("head").append("<style>.control{display:none;}</style>");
       }
     });
