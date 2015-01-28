@@ -13,6 +13,7 @@ exports.aceAttribsToClasses = function(name, context){
 
 exports.aceInitialized = function(hook, context){
   var editorInfo = context.editorInfo;
+  editorInfo.ace_addImage = underscore(image.addImage).bind(context);
   editorInfo.ace_setImageSize = underscore(image.setImageSize).bind(context);
   editorInfo.ace_removeImage = underscore(image.removeImage).bind(context);
 }
@@ -30,6 +31,29 @@ exports.postAceInit = function(hook,context){
 
     var $inner = $(doc).find('#innerdocbody');
 
+    $inner.on("drop", function(e){
+      e = e.originalEvent;
+      var file = e.dataTransfer.files[0];
+      //don't try to mess with non-image files
+      if (file.type.match('image.*')) {
+        var reader = new FileReader();
+        reader.onload = (function(theFile) {
+          //get the data uri
+          var dataURI = theFile.target.result;
+          //make a new image element with the dataURI as the source
+          var img = document.createElement("img");
+          img.src = dataURI;
+          // Now to insert the base64 encoded image into the pad
+          context.ace.callWithAce(function(ace){
+            var rep = ace.ace_getRep();
+            ace.ace_addImage(rep, img.src);
+          }, 'img', true);
+
+        });
+        reader.readAsDataURL(file);
+      }
+    });
+
     // Don't allow resize handles to be shown
     doc.execCommand("enableObjectResizing", false, false);
 
@@ -45,7 +69,7 @@ exports.postAceInit = function(hook,context){
       var imageLine = $inner.find("#"+id).parents("div");
       var oldLineNumber = imageLine.prevAll().length;
 
-        context.ace.callWithAce(function(ace){
+      context.ace.callWithAce(function(ace){
         var rep = ace.ace_getRep();
         var newLineNumber = rep.selStart[0];
         // console.log("old", oldLineNumber, "new", newLineNumber);
@@ -111,7 +135,18 @@ var image = {
     // This errors for some reason..
     documentAttributeManager.removeAttributeOnLine(lineNumber, 'img'); // make the line a task list
     documentAttributeManager.removeAttributeOnLine(lineNumber, 'imgSize'); // make the line a task list
+  },
+
+  addImage: function(rep, src){
+    var documentAttributeManager = this.documentAttributeManager;
+
+    // Get the line number
+    var lineNumber = rep.selStart[0];
+    // This errors for some reason..
+    src = "<img src="+src+">";
+    documentAttributeManager.setAttributeOnLine(lineNumber, 'img', src); // make the line a task list
   }
+
 }
 
 exports.aceEditorCSS = function(hook_name, cb){return ["/ep_copy_paste_images/static/css/ace.css"];} // inner pad CSS
@@ -200,12 +235,9 @@ exports.collectContentPost = function(name, context){
   var tname = context.tname;
   var state = context.state;
   var lineAttributes = state.lineAttributes
-//  var tagIndex = _.indexOf(tags, tname);
   if(tname == "img"){
     delete lineAttributes['img'];
   }
-// uncommenting breaks drag and drop in firefox
-//  delete context.state.lineAttributes.img;
 }
 
 exports.aceCreateDomLine = function(name, args){
