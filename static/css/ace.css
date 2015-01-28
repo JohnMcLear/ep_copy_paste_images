@@ -2,10 +2,20 @@
   display:inline-block;
   position:relative;
   padding:10px 0px 10px 0px;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;	
 }
 
 .image > img{
   width:100% !important;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 .image > .control{

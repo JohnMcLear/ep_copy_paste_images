@@ -45,12 +45,21 @@ exports.postAceInit = function(hook,context){
     })
 
     // On drag end remove the attribute on the line
+    // Note we check the line number has actually changed, if not a drag start/end
+    // to the same location would cause the image to be deleted!
     $inner.on("dragend", ".image", function(e){
-      // Here I need to remove the lineAttribute from the source line
-      context.ace.callWithAce(function(ace){
-        ace.ace_removeImage(oldLineNumber);
-      }, 'img', true);
+      var id = e.currentTarget.id;
+      var imageLine = $inner.find("#"+id).parent();
+      var newLineNumber = imageLine.prevAll().length;
 
+        context.ace.callWithAce(function(ace){
+        var rep = ace.ace_getRep();
+        var newLineNumber = rep.selStart[0];
+        if (oldLineNumber !== newLineNumber){
+          // Here I need to remove the lineAttribute from the source line
+          ace.ace_removeImage(oldLineNumber);
+        }
+      }, 'img', true);
     })
 
     
@@ -138,15 +147,13 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
 
   // var template = "";
   var randomId =  Math.floor((Math.random() * 100000) + 1); 
-  var template = '<span id="'+randomId+'" class="image" style="'+width+'">';
+  var template = '<span id="'+randomId+'" class="image" style="'+width+'" unselectable="on" contentEditable=false>';
   template += '<span class="control '+randomId+'" id="small" unselectable="on" contentEditable=false></span>';
-  template += '<span class="control" id="medium" contentEditable=false></span>';
-  template += '<span class="control" id="large" contentEditable=false></span>';
+  template += '<span class="control '+randomId+'" id="medium" unselectable="on" contentEditable=false></span>';
+  template += '<span class="control '+randomId+'" id="large" unselectable="on" contentEditable=false></span>';
   if (imgType[1]){
-    var preHtml = template + imgType[1]+' style="'+height+'width:100%;" contentEditable="false">'
+    var preHtml = template + imgType[1]+' style="'+height+'width:100%;" unselectable="on" contentEditable=false>'
     var postHtml = '</span>';
-    console.log(preHtml, postHtml);
-
     var modifier = {
       preHtml: preHtml,
       postHtml: postHtml,

@@ -35,7 +35,7 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
 
  - [x] BUG: ALL: Fix copy/paste within editor creating 2 copies Currently if you copy/paste an image inside the pad <-- Seems to create n copies based on number of line breaks that have been copied IE if <img><br> is copied it will create 2 copies.  The fix here is to use cc.doAttrib probably assuming that applies attrib on a line and not a selection
  - [x] BUG: ALL: Fix copy/paste creating two copies when copying from web browser
- - [ ] BUG: ALL: Fix issue where dragging and dropping in same location nukes the imag (easy to fix in all browsers except firefox, see below)
+ - [x] BUG: ALL: Fix issue where dragging and dropping in same location nukes the imag (easy to fix in all browsers except firefox, see below)
 
  - [ ] BUG: FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition (firefox thinks start and end position is always the same)
  - [ ] BUG: CHROME: Drag and Drop from File system wont import image (Chrome bug) http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser 
