@@ -10,6 +10,7 @@
  * Resize image (not optimized for delivery)
  * Touch / Mobile devices supported
  * Can drag/drop onto both blank lines and pre-populated lines (automatically generates new lines)
+ * Timeslider support
 
 ## Warning
 This plugin is WIP and isn't stable 

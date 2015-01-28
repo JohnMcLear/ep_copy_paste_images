@@ -21,7 +21,8 @@
       "hooks":{
         "eejsBlock_styles": "ep_copy_paste_images/index",
         "collectContentPre": "ep_copy_paste_images/static/js/index",
-        "collectContentPost": "ep_copy_paste_images/static/js/index"
+        "collectContentPost": "ep_copy_paste_images/static/js/index",
+        "eejsBlock_timesliderStyles": "ep_copy_paste_images/index"
       }
     }
   ]

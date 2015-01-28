@@ -148,7 +148,7 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
   template += '<span class="control '+randomId+'" id="medium" unselectable="on" contentEditable=false></span>';
   template += '<span class="control '+randomId+'" id="large" unselectable="on" contentEditable=false></span>';
   if (imgType[1]){
-    var preHtml = template + imgType[1]+' style="'+height+'width:100%;" unselectable="on" contentEditable=false>'
+    var preHtml = template + imgType[1]+' style="'+height+'width:100%;" width=100% unselectable="on" contentEditable=false>'
     var postHtml = '</span>';
     var modifier = {
       preHtml: preHtml,
