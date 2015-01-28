@@ -23,15 +23,15 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  -Hopefully creating a "new line" event should fix this
  - [x] Fix issue with large images being distorted
 
- - [ ] ALL: Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
- -Seeing ep_fileupload we can probably leverage this and store images on the server
- - [ ] ALL: Fix copy/paste within editor creating 2 copies Currently if you copy/paste an image inside the pad it spams the image onto the pad multiple times.
- -I might have to modify the hook to make this work effectively
- - [ ] ALL: Fix copy/paste creating two copies when copying from web browser
+ - [ ] BUG: ALL: Fix copy/paste within editor creating 2 copies Currently if you copy/paste an image inside the pad
+ - [ ] BUG: ALL: Fix copy/paste creating two copies when copying from web browser
+ - [ ] BUG: ALL: Fix issue where dragging and dropping in same location nukes the imag (easy to fix in all browsers except firefox, see below)
 
- - [ ] FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition
- - [ ] ALL: Fix issue where dragging and dropping in same location nukes the image
- - [ ] CHROME: Drag and Drop from File system wont import image (Chrome bug) http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser  (NOTE I ALSO TESTED IN FF AND IE AND ITS WORKING FINE SO ALTERNATIVE IS TO TELL PEOPLE TO USE FIREFOX :P) also note copy/paste clipboard works fine
+ - [ ] BUG: FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition (firefox thinks start and end position is always the same)
+ - [ ] BUG: CHROME: Drag and Drop from File system wont import image (Chrome bug) http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser 
+
+ - [ ] FEATURE: ALL: Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
+ -Seeing ep_fileupload we can probably leverage this and store images on the server
 
 #V2:
  - [x] Investigate using shadow DOM Impossible
