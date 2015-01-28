@@ -1,6 +1,16 @@
 # Paste images from clipboard into Etherpad
 ![Screenshot](http://i.imgur.com/emZqtwG.png)
 
+# Features
+ * Drag and drop from file system
+ * Paste from Clipboard
+ * Drag and drop images on pad
+ * Copy and paste images on pad
+ * Cut and paste images on pad
+ * Resize image (not optimized for delivery)
+ * Touch / Mobile devices supported
+ * Can drag/drop onto both blank lines and pre-populated lines (automatically generates new lines)
+
 ## Warning
 This plugin is WIP and isn't stable 
 
@@ -23,7 +33,7 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  -Hopefully creating a "new line" event should fix this
  - [x] Fix issue with large images being distorted
 
- - [ ] BUG: ALL: Fix copy/paste within editor creating 2 copies Currently if you copy/paste an image inside the pad
+ - [ ] BUG: ALL: Fix copy/paste within editor creating 2 copies Currently if you copy/paste an image inside the pad <-- Seems to create n copies based on number of line breaks that have been copied IE if <img><br> is copied it will create 2 copies.  The fix here is to use cc.doAttrib probably assuming that applies attrib on a line and not a selection
  - [ ] BUG: ALL: Fix copy/paste creating two copies when copying from web browser
  - [ ] BUG: ALL: Fix issue where dragging and dropping in same location nukes the imag (easy to fix in all browsers except firefox, see below)
 
@@ -96,3 +106,9 @@ On each release of this plugin due to browser restrictions we have to do a lot o
     1. Caret can still be moved before and after the image using arrow keys and page up/down
   1. Backspace deletes an image when caret is placed after the image
   1. Delete deletes an image when caret is placed before the image
+
+# License
+Apache 2
+
+# Donations
+![Etherpad Foundation](http://etherpad.org)
