@@ -1,12 +1,12 @@
 {
   "name": "ep_copy_paste_images",
   "description": "Copy and Paste images from clipboard to a pad",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "johnyma22 (John McLear) <john@mclear.co.uk>",
   "contributors": [ ],
   "dependencies": { },
   "peerDependencies": {
-    "ep_etherpad_lite" : ">=1.5.2"
+    "ep_etherpad-lite" : ">=1.5.2"
   },
   "repository" : {
     "type" : "git",
