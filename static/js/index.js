@@ -20,7 +20,7 @@ exports.aceInitialized = function(hook, context){
 // Handle click events
 exports.postAceInit = function(hook,context){
 
-  var oldLineNumber = 0;
+  // var oldLineNumber = 0;
 
   context.ace.callWithAce(function(ace){
     var doc = ace.ace_getDocument();
@@ -37,31 +37,27 @@ exports.postAceInit = function(hook,context){
     $inner.on("oncontrolselect", ".control", function(){
     })
 
-    // On drag start of an image store the old line number (#hack potentially bad)
-    $inner.on("dragstart", ".image", function(e){
-      var id = e.currentTarget.id;
-      var imageLine = $inner.find("#"+id).parent();
-      oldLineNumber = imageLine.prevAll().length;
-    })
-
     // On drag end remove the attribute on the line
     // Note we check the line number has actually changed, if not a drag start/end
     // to the same location would cause the image to be deleted!
     $inner.on("dragend", ".image", function(e){
       var id = e.currentTarget.id;
       var imageLine = $inner.find("#"+id).parent();
-      var newLineNumber = imageLine.prevAll().length;
+      var oldLineNumber = imageLine.prevAll().length;
 
         context.ace.callWithAce(function(ace){
         var rep = ace.ace_getRep();
         var newLineNumber = rep.selStart[0];
+        // console.log("old", oldLineNumber, "new", newLineNumber);
         if (oldLineNumber !== newLineNumber){
           // Here I need to remove the lineAttribute from the source line
+          // oldLineNumber is changed if a new line is created.
+          // The best way to get the oldLineNumber is to find the image
+          // But it's hard to know if we will find the 
           ace.ace_removeImage(oldLineNumber);
         }
       }, 'img', true);
     })
-
     
     // On click ensure all image controls are hidden
     $inner.on("click", "div", function(){

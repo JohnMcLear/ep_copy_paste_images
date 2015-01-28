@@ -38,8 +38,8 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  - [x] BUG: ALL: Fix issue where dragging and dropping in same location nukes the imag (easy to fix in all browsers except firefox, see below)
 
  - [x] BUG: FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition (firefox thinks start and end position is always the same)
- - [ ] BUG: ALL: Drag and Drop onto line with content doesn't remove old content
- - [ ] BUG: CHROME: Drag and Drop from File system wont import image (Chrome bug) http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser 
+ - [ ] BUG: ALL: Drag and Drop onto line ABOVE WITH CONTENT doesn't remove old content -- Because the DOM is rewritten the line number is changed..  I'm a bit unsure how to fix this
+ - [ ] BUG: CHROME: Drag and Drop from File system wont import image (Chrome bug) http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser
 
  - [ ] FEATURE: ALL: Consider file upload experience (if we want to provide that) (see https://github.com/JohnMcLear/ep_copy_paste_images/issues/3)
  -Seeing ep_fileupload we can probably leverage this and store images on the server
