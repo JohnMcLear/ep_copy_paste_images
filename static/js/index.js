@@ -30,10 +30,12 @@ exports.postAceInit = function(hook,context){
     $(doc).find("head").append("<style type='text/css'>.control{display:none;}</style>");      
 
     var $inner = $(doc).find('#innerdocbody');
+    var lineHasContent = false;
 
     $inner.on("drop", function(e){
       e = e.originalEvent;
       var file = e.dataTransfer.files[0];
+      if(!file) return;
       //don't try to mess with non-image files
       if (file.type.match('image.*')) {
         var reader = new FileReader();
@@ -66,21 +68,23 @@ exports.postAceInit = function(hook,context){
     // to the same location would cause the image to be deleted!
     $inner.on("dragend", ".image", function(e){
       var id = e.currentTarget.id;
-      var imageLine = $inner.find("#"+id).parents("div");
+      var imageContainer = $inner.find("#"+id);
+      var imageLine = $inner.find("."+id).parents("div");
       var oldLineNumber = imageLine.prevAll().length;
-
       context.ace.callWithAce(function(ace){
         var rep = ace.ace_getRep();
         var newLineNumber = rep.selStart[0];
-        // console.log("old", oldLineNumber, "new", newLineNumber);
+
         if (oldLineNumber !== newLineNumber){
-          // Here I need to remove the lineAttribute from the source line
-          // oldLineNumber is changed if a new line is created.
-          // The best way to get the oldLineNumber is to find the image
-          // But it's hard to know if we will find the 
+          // We just nuke the HTML, potentially dangerous but seems to work
+          $(imageContainer).remove();
+          // We also remove teh attribute hoping we get the number right..
           ace.ace_removeImage(oldLineNumber);
         }
       }, 'img', true);
+
+      // TODO, if the image is moved only one line up it will create a duplicate
+      // IF the line is already populated, nothing much I can do about that for now
     })
     
     // On click ensure all image controls are hidden
@@ -178,12 +182,12 @@ exports.aceDomLineProcessLineAttributes = function(name, context){
 
   // var template = "";
   var randomId =  Math.floor((Math.random() * 100000) + 1); 
-  var template = '<span id="'+randomId+'" class="image" style="'+width+'" unselectable="on" contentEditable=false>';
+  var template = '<span id="'+randomId+'" class="image" style="'+width+'">';
   template += '<span class="control '+randomId+'" id="small" unselectable="on" contentEditable=false></span>';
   template += '<span class="control '+randomId+'" id="medium" unselectable="on" contentEditable=false></span>';
   template += '<span class="control '+randomId+'" id="large" unselectable="on" contentEditable=false></span>';
   if (imgType[1]){
-    var preHtml = template + imgType[1]+' style="'+height+'width:100%;" width=100% unselectable="on" contentEditable=false>'
+    var preHtml = template + imgType[1]+' style="'+height+'width:100%;" width=100%>'
     var postHtml = '</span>';
     var modifier = {
       preHtml: preHtml,
@@ -206,9 +210,15 @@ exports.collectContentImage = function(name, context){
   var lineAttributes = state.lineAttributes
   if(tname === "div" || tname === "p"){
     delete lineAttributes['img'];
+    delete lineAttributes['imgSize'];
   }
   if(tname == "img"){
     lineAttributes['img'] = context.node.outerHTML;
+  }
+  if(context.node.parentNode && context.node.parentNode.style.width){
+    if(context.node.parentNode.style.width == "50%"){
+      lineAttributes['imgSize'] = "medium";
+    }
   }
 }
 
@@ -237,6 +247,9 @@ exports.collectContentPost = function(name, context){
   var lineAttributes = state.lineAttributes
   if(tname == "img"){
     delete lineAttributes['img'];
+  }
+  if(tname == "imgSize"){
+    delete lineAttributes['imgSize'];
   }
 }
 

@@ -41,8 +41,10 @@ You don't.  It's as simple as that.  Etherpad is a line based editor meaning hav
  - [x] BUG: FIREFOX: Fix issue with Firefox not being able to drag an image UP towards the top of the pad due to race condition (firefox thinks start and end position is always the same)
  - [x] BUG: IE/CHROME: Drag and Drop from File system wont import image (Chrome bug) http://stackoverflow.com/questions/23548745/drag-and-drop-image-file-into-contenteditable-div-works-fine-in-ff-fails-miser
  - [x] BUG: IE: Unable to drag an drop contens in a pad
- - [ ] BUG: ALL: Drag and Drop onto line ABOVE WITH CONTENT doesn't remove old content -- Because the DOM is rewritten the line number is changed..  I'm a bit unsure how to fix this
- - [ ] BUG: FIREFOX/IE: Copy/Pasting text and images only pastes text
+ - [x] BUG: FIREFOX/IE: Copy/Pasting text and images only pastes text
+ - [ ] BUG: ALL: Image size is lost on cut/copy/paste & drag/drop
+ - [ ] MINOR BUG: ALL: Drag and Drop onto line ONE LINE ABOVE WITH CONTENT doesn't remove old content -- Because the DOM is rewritten the line number is changed..  I'm a bit unsure how to fix this
+ - [ ] MINOR BUG: ALL: Under certain (I don't know what yet) conditions an image can get distorted (x/y) -- I need steps to replicate really
 
 #V2:
  - [ ] OPTIMIZE: Put images on the file system with links instead of in the pad as Base64 Encoded
