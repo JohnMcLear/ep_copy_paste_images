@@ -5,9 +5,6 @@
   "author": "johnyma22 (John McLear) <john@mclear.co.uk>",
   "contributors": [ ],
   "dependencies": { },
-  "peerDependencies": {
-    "ep_etherpad-lite" : ">=1.5.2"
-  },
   "repository" : {
     "type" : "git",
     "url"  : "https://github.com/JohnMcLear/ep_copy_paste_images.git"
