@@ -86,14 +86,14 @@ exports.postAceInit = function(hook,context){
       // TODO, if the image is moved only one line up it will create a duplicate
       // IF the line is already populated, nothing much I can do about that for now
     })
-    
+
     // On click ensure all image controls are hidden
     $inner.on("click", "div", function(){
       // if it's an image
       var isImage = $(this).find(".image").length > 0;
       // Hide the controls
       if(!isImage){
-        $(doc).find("head").append("<style>.control{display:none;}</style>");      
+        $(doc).find("head").append("<style>.control{display:none;}</style>");
       }
     });
 
@@ -101,13 +101,15 @@ exports.postAceInit = function(hook,context){
     $inner.on("click, mouseover", ".image", function(){
       var randomId = $(this)[0].id;
       // TODO Fix this so it's per image
-      $(doc).find("head").append("<style>.control{display:block;}</style>");      
+      $(doc).find("head").append("<style>.control{display:block;}</style>");
     });
 
     // On clicking / hover of an image show the resize shiz
     $inner.on("mouseout", ".image", function(){
       var randomId = $(this)[0].id;
-      var isImage = $(this).context.className === "image";
+      if($(this).context){
+        var isImage = $(this).context.className === "image";
+      }
       if(isImage){
         $(doc).find("head").append("<style>.control{display:none;}</style>");
       }
