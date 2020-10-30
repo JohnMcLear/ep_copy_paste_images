@@ -1,7 +1,7 @@
 {
   "name": "ep_copy_paste_images",
   "description": "Copy and Paste images from clipboard to a pad",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "author": "johnyma22 (John McLear) <john@mclear.co.uk>",
   "contributors": [],
   "dependencies": {},
