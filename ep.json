@@ -9,20 +9,20 @@
         "acePostWriteDomLineHTML": "ep_copy_paste_images/static/js/index",
         "collectContentPre": "ep_copy_paste_images/static/js/index",
         "collectContentPost": "ep_copy_paste_images/static/js/index",
-        "collectContentImage" : "ep_copy_paste_images/static/js/index",
-        "aceAttribsToClasses" : "ep_copy_paste_images/static/js/index",
-        "aceDomLineProcessLineAttributes" : "ep_copy_paste_images/static/js/index",
-        "aceAttribClasses" : "ep_copy_paste_images/static/js/index",
-        "postAceInit" : "ep_copy_paste_images/static/js/index",
-        "aceInitialized" : "ep_copy_paste_images/static/js/index",
+        "collectContentImage": "ep_copy_paste_images/static/js/index",
+        "aceAttribsToClasses": "ep_copy_paste_images/static/js/index",
+        "aceDomLineProcessLineAttributes": "ep_copy_paste_images/static/js/index",
+        "aceAttribClasses": "ep_copy_paste_images/static/js/index",
+        "postAceInit": "ep_copy_paste_images/static/js/index",
+        "aceInitialized": "ep_copy_paste_images/static/js/index",
         "ccRegisterBlockElements": "ep_copy_paste_images/static/js/index",
         "aceRegisterBlockElements": "ep_copy_paste_images/static/js/index"
       },
-      "hooks":{
+      "hooks": {
         "eejsBlock_styles": "ep_copy_paste_images/index",
-        "eejsBlock_timesliderStyles": "ep_copy_paste_images/index"
+        "eejsBlock_timesliderStyles": "ep_copy_paste_images/index",
+        "getLineHTMLForExport": "ep_copy_paste_images/index"
       }
     }
   ]
 }
-

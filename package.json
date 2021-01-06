@@ -10,7 +10,7 @@
     "url": "https://github.com/JohnMcLear/ep_copy_paste_images.git"
   },
   "engines": {
-    "node": "*"
+    "node": ">=10.13.0"
   },
   "funding": {
     "type": "individual",
