@@ -1,5 +1,4 @@
 'use strict';
-const underscore = require('ep_etherpad-lite/static/js/underscore');
 
 exports.aceAttribsToClasses = (name, context) => {
   if (context.key === 'img') {
@@ -10,11 +9,43 @@ exports.aceAttribsToClasses = (name, context) => {
   }
 };
 
+const image = {
+  setImageSize(size, lineNumber) {
+    const documentAttributeManager = this.documentAttributeManager;
+
+    // make the line a task list
+    documentAttributeManager.setAttributeOnLine(lineNumber, 'imgSize', size);
+  },
+
+  removeImage(lineNumber) {
+    const documentAttributeManager = this.documentAttributeManager;
+
+    // This errors for some reason..
+
+    // make the line a task list
+    documentAttributeManager.removeAttributeOnLine(lineNumber, 'img');
+    // make the line a task list
+    documentAttributeManager.removeAttributeOnLine(lineNumber, 'imgSize');
+  },
+
+  addImage(rep, src) {
+    const documentAttributeManager = this.documentAttributeManager;
+
+    // Get the line number
+    const lineNumber = rep.selStart[0];
+    // This errors for some reason..
+    src = `<img src=${src}>`;
+
+    // make the line a task list
+    documentAttributeManager.setAttributeOnLine(lineNumber, 'img', src);
+  },
+};
+
 exports.aceInitialized = (hook, context) => {
   const editorInfo = context.editorInfo;
-  editorInfo.ace_addImage = underscore(image.addImage).bind(context);
-  editorInfo.ace_setImageSize = underscore(image.setImageSize).bind(context);
-  editorInfo.ace_removeImage = underscore(image.removeImage).bind(context);
+  editorInfo.ace_addImage = image.addImage.bind(context);
+  editorInfo.ace_setImageSize = image.setImageSize.bind(context);
+  editorInfo.ace_removeImage = image.removeImage.bind(context);
 };
 
 // Handle click events
@@ -118,40 +149,6 @@ exports.postAceInit = function (hook, context) {
       }, 'img', true);
     });
   }, 'image', true);
-};
-
-
-const image = {
-  setImageSize(size, lineNumber) {
-    const documentAttributeManager = this.documentAttributeManager;
-
-    // make the line a task list
-    documentAttributeManager.setAttributeOnLine(lineNumber, 'imgSize', size);
-  },
-
-  removeImage(lineNumber) {
-    const documentAttributeManager = this.documentAttributeManager;
-
-    // This errors for some reason..
-
-    // make the line a task list
-    documentAttributeManager.removeAttributeOnLine(lineNumber, 'img');
-    // make the line a task list
-    documentAttributeManager.removeAttributeOnLine(lineNumber, 'imgSize');
-  },
-
-  addImage(rep, src) {
-    const documentAttributeManager = this.documentAttributeManager;
-
-    // Get the line number
-    const lineNumber = rep.selStart[0];
-    // This errors for some reason..
-    src = `<img src=${src}>`;
-
-    // make the line a task list
-    documentAttributeManager.setAttributeOnLine(lineNumber, 'img', src);
-  },
-
 };
 
 // inner pad CSS
